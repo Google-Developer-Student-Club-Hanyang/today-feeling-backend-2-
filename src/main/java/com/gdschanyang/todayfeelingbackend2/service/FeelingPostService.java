@@ -2,37 +2,37 @@ package com.gdschanyang.todayfeelingbackend2.service;
 
 import com.gdschanyang.todayfeelingbackend2.domain.posts.FeelingPost;
 import com.gdschanyang.todayfeelingbackend2.repository.FeelingPostRepository;
+import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostResponseDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostSaveRequestDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostUpdateRequestDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+@RequiredArgsConstructor
 @Service
 public class FeelingPostService {
     private final FeelingPostRepository feelingPostRepository;
 
-    public FeelingPostService(FeelingPostRepository feelingPostRepository) {
-        this.feelingPostRepository = feelingPostRepository;
+    @Transactional
+    public void save(FeelingPostSaveRequestDto requestDto) {
+        feelingPostRepository.save(requestDto.toEntity());
     }
 
     @Transactional
-    public void save(FeelingPost feelingPost) {
-        feelingPostRepository.save(feelingPost);
-    }
-
-    @Transactional
-    public void update(Long id, FeelingPost feelingPost) {
+    public void update(Long id, FeelingPostUpdateRequestDto requestDto) {
         FeelingPost feelingPostEntity = feelingPostRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
 
-        feelingPostEntity.update(feelingPost.getContent());
+        feelingPostEntity.update(requestDto.getContent());
     }
 
     @Transactional
-    public FeelingPost findById(Long id) {
-        FeelingPost feelingPost = feelingPostRepository.findById(id)
+    public FeelingPostResponseDto findById(Long id) {
+        FeelingPost entity = feelingPostRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
 
-        return feelingPost;
+        return new FeelingPostResponseDto(entity);
     }
 
     @Transactional
@@ -42,7 +42,6 @@ public class FeelingPostService {
 
         feelingPostRepository.delete(feelingPost);
     }
-
 
 
 }

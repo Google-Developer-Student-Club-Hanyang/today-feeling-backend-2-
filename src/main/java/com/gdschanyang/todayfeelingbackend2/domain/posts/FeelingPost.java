@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
 @Entity
 public class FeelingPost extends BaseTimeEntity {
 
@@ -37,12 +38,15 @@ public class FeelingPost extends BaseTimeEntity {
     @OneToMany(mappedBy = "feelingPost")
     private List<FeelingHeart> feelingHearts = new ArrayList<FeelingHeart>();
 
-    // 삭제 여부 1:삭제 0:삭제X
+    // 삭제 여부 T:삭제 F:삭제X
     @Column(nullable = false)
-    private boolean delFlag; //다시
+    private char delFlag;
 
     @Builder
-    public FeelingPost() {
+    public FeelingPost(Long id, Feeling feeling, String content) {
+        this.id = id;
+        this.feeling = feeling;
+        this.content = content;
         this.user.addFeelingPost(this);
     }
 

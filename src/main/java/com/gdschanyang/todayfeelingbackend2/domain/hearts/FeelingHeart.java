@@ -1,5 +1,6 @@
 package com.gdschanyang.todayfeelingbackend2.domain.hearts;
 
+import com.gdschanyang.todayfeelingbackend2.domain.BaseTimeEntity;
 import com.gdschanyang.todayfeelingbackend2.domain.posts.FeelingPost;
 import com.gdschanyang.todayfeelingbackend2.domain.user.User;
 import lombok.Builder;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-public class FeelingHeart {
+public class FeelingHeart extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
