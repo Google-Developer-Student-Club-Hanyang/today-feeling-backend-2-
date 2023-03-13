@@ -2,9 +2,9 @@ package com.gdschanyang.todayfeelingbackend2.service;
 
 import com.gdschanyang.todayfeelingbackend2.domain.posts.FeelingPost;
 import com.gdschanyang.todayfeelingbackend2.repository.FeelingPostRepository;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostResponseDto;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostSaveRequestDto;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostUpdateRequestDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostResponseDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostSaveRequestDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

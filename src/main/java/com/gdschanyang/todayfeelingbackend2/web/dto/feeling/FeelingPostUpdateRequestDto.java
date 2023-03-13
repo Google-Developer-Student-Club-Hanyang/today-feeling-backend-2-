@@ -1,4 +1,4 @@
-package com.gdschanyang.todayfeelingbackend2.web.dto;
+package com.gdschanyang.todayfeelingbackend2.web.dto.feeling;
 
 
 import lombok.Builder;

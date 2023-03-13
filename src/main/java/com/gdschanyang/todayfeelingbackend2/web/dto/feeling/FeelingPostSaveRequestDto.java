@@ -1,4 +1,4 @@
-package com.gdschanyang.todayfeelingbackend2.web.dto;
+package com.gdschanyang.todayfeelingbackend2.web.dto.feeling;
 
 import com.gdschanyang.todayfeelingbackend2.domain.posts.Feeling;
 import com.gdschanyang.todayfeelingbackend2.domain.posts.FeelingPost;

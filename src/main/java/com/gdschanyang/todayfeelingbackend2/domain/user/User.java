@@ -28,19 +28,19 @@ public class User {
 
     // 1. User : FeelingPost = 1 : n -> 한 유저가 여러 감정글 작성
     @OneToMany(mappedBy = "user")
-    private List<FeelingPost> feelingPosts = new ArrayList<FeelingPost>();
+    private List<FeelingPost> feelingPosts = new ArrayList<>();
 
     // 1. User : ClinicPost = 1 : n -> 한 유저가 여러 클리닉글 작성
     @OneToMany(mappedBy = "user")
-    private List<ClinicPost> clinicPosts = new ArrayList<ClinicPost>();
+    private List<ClinicPost> clinicPosts = new ArrayList<>();
 
     // 2. User : FeelingHeart = 1 : n
     @OneToMany(mappedBy = "user")
-    private List<FeelingHeart> feelingHearts = new ArrayList<FeelingHeart>();
+    private List<FeelingHeart> feelingHearts = new ArrayList<>();
 
     // 2. User : ClinicHeart = 1 : n
     @OneToMany(mappedBy = "user")
-    private List<ClinicHeart> clinicHearts = new ArrayList<ClinicHeart>();
+    private List<ClinicHeart> clinicHearts = new ArrayList<>();
 
     public void addFeelingPost(FeelingPost feelingPost) {
         this.feelingPosts.add(feelingPost);

@@ -35,7 +35,7 @@ public class ClinicPost extends BaseTimeEntity {
 
     // 3. ClinicPost : ClinicHeart = 1 : n
     @OneToMany(mappedBy = "clinicPost")
-    private List<ClinicHeart> clinicHearts = new ArrayList<ClinicHeart>();
+    private List<ClinicHeart> clinicHearts = new ArrayList<>();
 
     @Builder
     public ClinicPost(Long id, String title, String content) {
@@ -47,5 +47,10 @@ public class ClinicPost extends BaseTimeEntity {
 
     public void addClinicPost(ClinicHeart clinicHeart){
         this.clinicHearts.add(clinicHeart);
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }

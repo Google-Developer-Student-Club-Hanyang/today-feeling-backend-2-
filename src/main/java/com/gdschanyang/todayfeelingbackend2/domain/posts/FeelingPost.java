@@ -1,6 +1,7 @@
 package com.gdschanyang.todayfeelingbackend2.domain.posts;
 
 
+import com.gdschanyang.todayfeelingbackend2.BooleanToTFConverter;
 import com.gdschanyang.todayfeelingbackend2.domain.BaseTimeEntity;
 import com.gdschanyang.todayfeelingbackend2.domain.hearts.FeelingHeart;
 import com.gdschanyang.todayfeelingbackend2.domain.user.User;
@@ -36,11 +37,12 @@ public class FeelingPost extends BaseTimeEntity {
 
     // 3. FeelingPost : FeelingHeart = 1 : n
     @OneToMany(mappedBy = "feelingPost")
-    private List<FeelingHeart> feelingHearts = new ArrayList<FeelingHeart>();
+    private List<FeelingHeart> feelingHearts = new ArrayList<>();
 
     // 삭제 여부 T:삭제 F:삭제X
     @Column(nullable = false)
-    private char delFlag;
+    @Convert(converter = BooleanToTFConverter.class)
+    private boolean delFlag;
 
     @Builder
     public FeelingPost(Long id, Feeling feeling, String content) {
@@ -50,11 +52,12 @@ public class FeelingPost extends BaseTimeEntity {
         this.user.addFeelingPost(this);
     }
 
-    public void addFeelingPost(FeelingHeart feelingHeart){
-        this.feelingHearts.add(feelingHeart);
-    }
 
     public void update(String content) {
         this.content = content;
+    }
+
+    public void addFeelingHeart(FeelingHeart feelingHeart) {
+        this.feelingHearts.add(feelingHeart);
     }
 }

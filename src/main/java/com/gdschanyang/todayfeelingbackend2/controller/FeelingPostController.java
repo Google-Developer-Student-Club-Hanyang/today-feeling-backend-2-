@@ -2,9 +2,9 @@ package com.gdschanyang.todayfeelingbackend2.controller;
 
 
 import com.gdschanyang.todayfeelingbackend2.service.FeelingPostService;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostResponseDto;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostSaveRequestDto;
-import com.gdschanyang.todayfeelingbackend2.web.dto.FeelingPostUpdateRequestDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostResponseDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostSaveRequestDto;
+import com.gdschanyang.todayfeelingbackend2.web.dto.feeling.FeelingPostUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
